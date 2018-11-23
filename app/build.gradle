@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion '28.0.3'
+    defaultConfig {
+        applicationId "com.noralynn.coffeeHelper"
+        minSdkVersion 19
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath false
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compileOnly 'com.google.dagger:dagger:2.15'
+    // Adds the annotation processor dependency to the annotation processor classpath.
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.15'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+    // GSON
+    implementation 'com.google.code.gson:gson:2.8.5'
+    // Yelp v2 API client library for Android
+    implementation 'com.yelp.clientlib:yelp-android:3.0.0'
+    // JUnit and Android test dependencies
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    // Note that the below dependency is ONLY non-"androidTestCompile" because we
+    // are doing the ugly thing and mixing Idling Resource code with our app code.
+    implementation 'com.android.support.test.espresso:espresso-idling-resource:3.0.2'
+    // Tell our test APK to use the following v25.1.0 dependencies in order to avoid conflicts:
+    androidTestImplementation 'com.android.support:support-v4:27.1.1'
+    androidTestImplementation 'com.android.support:recyclerview-v7:27.1.1'
+    androidTestImplementation 'com.android.support:appcompat-v7:27.1.1'
+    androidTestImplementation 'com.android.support:design:27.1.1'
+}
