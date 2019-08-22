@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +18,8 @@ import android.view.View.OnClickListener;
 import com.noralynn.coffeeShop.R;
 import com.noralynn.coffeeShop.beveragedetail.BeverageDetailActivity;
 import com.noralynn.coffeeShop.coffeeshoplist.CoffeeShopListActivity;
+import com.noralynn.coffeeShop.coffeeshoplist.CoffeeShopListViewPresenter;
+import com.noralynn.coffeeShop.coffeeshoplist.idlingresource.CoffeeShopsIdlingResource;
 import com.noralynn.coffeeShop.common.Beverage;
 
 import static com.noralynn.coffeeShop.R.id.map_fab;
@@ -42,6 +45,7 @@ public class BeverageListActivity extends AppCompatActivity implements BeverageL
         presenter = new BeverageListViewPresenter(this);
         presenter.onCreate(savedInstanceState);
     }
+
 
     public void initializeViews() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

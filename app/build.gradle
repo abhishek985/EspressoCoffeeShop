@@ -25,11 +25,15 @@ android {
     packagingOptions {
         exclude 'META-INF/LICENSE'
     }
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compileOnly 'com.google.dagger:dagger:2.15'
@@ -55,4 +59,10 @@ dependencies {
     androidTestImplementation 'com.android.support:recyclerview-v7:27.1.1'
     androidTestImplementation 'com.android.support:appcompat-v7:27.1.1'
     androidTestImplementation 'com.android.support:design:27.1.1'
+
+
+
+
+
 }
+

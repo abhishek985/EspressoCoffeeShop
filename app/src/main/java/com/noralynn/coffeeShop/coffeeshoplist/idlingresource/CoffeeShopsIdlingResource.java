@@ -35,4 +35,13 @@ public class CoffeeShopsIdlingResource implements IdlingResource {
             resourceCallback.onTransitionToIdle();
         }
     }
+
+    private static CoffeeShopsIdlingResource coffeeShopsIdlingResource;
+
+    public static CoffeeShopsIdlingResource getInstance() {
+        if (null == coffeeShopsIdlingResource) {
+            coffeeShopsIdlingResource = new CoffeeShopsIdlingResource();
+        }
+        return coffeeShopsIdlingResource;
+    }
 }

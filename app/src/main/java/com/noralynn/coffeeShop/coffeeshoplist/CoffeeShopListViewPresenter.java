@@ -38,7 +38,7 @@ import static com.noralynn.coffeeShop.http.ApiConstants.TOKEN;
 import static com.noralynn.coffeeShop.http.ApiConstants.TOKEN_SECRET;
 
 
-class CoffeeShopListViewPresenter {
+public  class CoffeeShopListViewPresenter {
 
     @NonNull
     private CoffeeShopListView coffeeShopListView;
@@ -72,7 +72,8 @@ class CoffeeShopListViewPresenter {
         }
     };
 
-    CoffeeShopListViewPresenter(@NonNull CoffeeShopListView coffeeShopListView) {
+
+     CoffeeShopListViewPresenter(@NonNull CoffeeShopListView coffeeShopListView) {
         this.coffeeShopListView = coffeeShopListView;
     }
 
@@ -102,7 +103,7 @@ class CoffeeShopListViewPresenter {
 
     @NonNull
     @VisibleForTesting
-    CoffeeShopsIdlingResource getCoffeeShopsIdlingResource() {
+    public  CoffeeShopsIdlingResource getCoffeeShopsIdlingResource() {
         if (null == coffeeShopsIdlingResource) {
             coffeeShopsIdlingResource = new CoffeeShopsIdlingResource();
             if (coffeeShopListModel.getCoffeeShops() != null && !coffeeShopListModel.getCoffeeShops().isEmpty()) {
